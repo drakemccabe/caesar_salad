@@ -1,0 +1,15 @@
+%header.centered-navigation
+  %div.center-navigation-wrapper
+    %a.mobile-logo
+      %img{:src => LOGO, :alt=> SITE_NAME + "Logo"}
+    %a.centered-navigation-mobile-menu
+    %nav
+      %ul.centered-navigation-menu.show
+        - NAV.keys.each do |page|
+          %li.nav-link
+            - if page.to_s == active
+              %a.active(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+                = NAV[page][:menu]
+            - else
+              %a(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+                = NAV[page][:menu]

@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title= NAV[active.downcase.to_sym][:title]
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/main.css'} 
+  %body
+    = partial 'navigation', locals: { active: active }
+    %section
+      = yield
+  %footer
+    = partial 'email_subscribe'
