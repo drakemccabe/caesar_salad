@@ -2,7 +2,6 @@
 LIST = ""
 
 ### SITE NAME ###
-
 SITE_NAME = "Caesar Salad"
   
 ### NAV ###
@@ -32,18 +31,17 @@ NAV = {home: {
                 description: "",
                 menu: "Events",
                 path: "/events"
-        }
+       }
 }
 
 ### SITE LOGO ###
-
 LOGO = "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png"
 
 ### GOOGLE ANALYTICS TRACKING TAG ###
-
 GOOGLE_ANALYTICS_TAG = ""
 
+### WEBMASTER TOOLS SITE VERIFICATION ###
+WEBMASTER_TOOLS_SITE_VERIFICATION = ""
 
 ### FACEBOOK PAGE ID ###
-
 FB_PAGE = "105381446173180"

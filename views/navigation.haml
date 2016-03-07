@@ -1,15 +1,23 @@
 %header.centered-navigation
   %div.center-navigation-wrapper
     %a.mobile-logo
-      %img{:src => LOGO, :alt=> SITE_NAME + "Logo"}
+      %img{:src => LOGO, :alt=> SITE_NAME + " Logo"}
     %a.centered-navigation-mobile-menu
     %nav
       %ul.centered-navigation-menu.show
-        - NAV.keys.each do |page|
-          %li.nav-link
-            - if page.to_s == active
-              %a.active(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+        - NAV.keys.each_with_index do |page, index|
+          - if page.to_s == active
+            %li.nav-link
+              %a.nav-active(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
                 = NAV[page][:menu]
-            - else
+          - elsif index == NAV.keys.length / 2 && NAV.keys.length % 2 == 0
+            %li.nav-link.logo
+              %a.logo(title="Home" href="/")
+                %img{:src => LOGO, :alt=> SITE_NAME + " Logo"}
+            %li.nav-link    
+              %a(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+                = NAV[page][:menu]
+          - else
+            %li.nav-link
               %a(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
                 = NAV[page][:menu]

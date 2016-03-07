@@ -2,7 +2,10 @@
 %html
   %head
     %title= NAV[active.downcase.to_sym][:title]
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/main.css'} 
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/main.css'}
+    %script{:type => "text/javascript", :src  => "/public/js/main.js"}
+    = GOOGLE_ANALYTICS_TAG
+    = WEBMASTER_TOOLS_SITE_VERIFICATION
   %body
     = partial 'navigation', locals: { active: active }
     %section

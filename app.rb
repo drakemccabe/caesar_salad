@@ -5,6 +5,7 @@ require './lib/helpers.rb'; require 'sinatra/partial'; require 'koala'
 configure do
   set :scss, {:style => :compressed, :debug_info => false}
   set :partial_template_engine, :haml
+  set :public_folder, '/public'
 end
 
 configure :development, :test do
@@ -19,8 +20,13 @@ get '/css/:name.css' do |name|
   scss "sass/#{name}".to_sym, :layout => false
 end
 
+get '/public/js/main.js' do
+  send_file File.join(settings.public_folder, 'js/main.js')
+end
+
 ### EMAIL SUBSCRIBE ###
-post '/email-subscribe' do
+post '/subscribe' do
+  binding.pry
   mailchimp = Mailchimp::API.new(ENV['MAILCHIMP'])
   mailchimp.lists.subscribe(MAILCHIMP-LIST-ID, 
                    { "email" => params[:email],
