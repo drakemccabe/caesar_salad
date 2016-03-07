@@ -25,7 +25,14 @@ NAV = {home: {
                  description: "",
                  menu: "Contact",
                  path: "/"
-       }
+       },
+  
+      events: {
+                title: "Upcoming Events",
+                description: "",
+                menu: "Events",
+                path: "/events"
+        }
 }
 
 ### SITE LOGO ###
@@ -35,3 +42,8 @@ LOGO = "https://raw.githubusercontent.com/thoughtbot/refills/master/source/image
 ### GOOGLE ANALYTICS TRACKING TAG ###
 
 GOOGLE_ANALYTICS_TAG = ""
+
+
+### FACEBOOK PAGE ID ###
+
+FB_PAGE = "105381446173180"

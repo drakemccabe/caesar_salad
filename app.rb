@@ -1,10 +1,5 @@
-require 'sinatra'
-require 'haml'
-require 'sass'
-require 'mailchimp'
-require './lib/constants.rb'
-require './lib/helpers.rb'
-require 'sinatra/partial'
+require 'sinatra'; require 'haml'; require 'sass'; require 'mailchimp'; require './lib/constants.rb'
+require './lib/helpers.rb'; require 'sinatra/partial'; require 'koala'
 
 ### SETUP ###
 configure do
@@ -38,4 +33,10 @@ end
 get '/' do
   @product = "Short Description of Product"
   haml :index, :layout => :default_layout, :locals => { active: "home" }
+end
+
+get '/events' do
+  @graph = Koala::Facebook::API.new(ENV['FACEBOOK'])
+  events = @graph.get_connection(FB_PAGE, "events")
+  haml :events, :layout => :default_layout, :locals => { active: "events"}
 end
