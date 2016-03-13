@@ -6,7 +6,7 @@
     %nav
       %ul.centered-navigation-menu.show
         - NAV.keys.each_with_index do |page, index|
-          - if page.to_s == active
+          - if page.to_s == active && index != NAV.keys.length / 2
             %li.nav-link
               %a.nav-active(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
                 = NAV[page][:menu]

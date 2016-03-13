@@ -1,0 +1,28 @@
+%div.footer-logo
+  %img{:src => LOGO, :alt=> SITE_NAME + " Logo"}
+%div.footer-links
+  %ul
+    %li
+      %h3 Subscribe
+    %li
+      = partial 'email_subscribe'
+  %ul
+    %li
+      %h3 Hours
+    - HOURS.each do |day|
+      %li
+        %p= day.keys.first.to_s.capitalize + ": " + day.values.first.to_s
+  %ul
+    %li
+      %h3 Contact
+    %li
+      %p Phone
+      %p= BIZ_PHONE
+    %li
+      %p Email
+      %p= BIZ_EMAIL
+    %li  
+      %p Address
+      %p= BIZ_ADDRESS
+%hr
+%p= "&#169; " + Date.today.year.to_s + " " + BIZ_NAME

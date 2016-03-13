@@ -1,0 +1,12 @@
+%nav.js-menu.sliding-panel-content
+  %ul
+    - NAV.keys.each do |page|
+      - if page.to_s == active
+        %li
+          %a.nav-active(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+            = NAV[page][:menu]
+      - else
+        %li.nav-link
+          %a(title="#{NAV[page][:title]}" href="#{NAV[page][:path]}")
+            = NAV[page][:menu]
+%div.js-menu-screen.sliding-panel-fade-screen

@@ -1,0 +1,13 @@
+%form{ :action => "/contact-form", :method => "post"}
+  %fieldset
+    %ol
+      %li
+        %label{:for => "email"} Email:
+        %input#subscribe{:type => "text", :name => "email", :class => "text"}
+      %li
+        %label{:for => "email"} Phone:
+        %input#subscribe{:type => "text", :name => "email", :class => "text"}
+      %li
+        %label{:for => "email"} Message:
+        %input#subscribe{:type => "text", :name => "email", :class => "text"}  
+    %input{:type => "submit", :value => "Contact Us", :class => "button"}
