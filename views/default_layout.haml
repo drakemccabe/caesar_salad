@@ -28,7 +28,6 @@
       - HOURS.each do |day|
         - if day.keys.first.to_s == Time.now.strftime("%A").downcase
           = "#{day.values.first} on #{day.keys.first.to_s.capitalize}s"
-    = partial 'navigation', locals: { active: active }
     = partial 'side_navigation', locals: { active: active }
     %section
       = yield

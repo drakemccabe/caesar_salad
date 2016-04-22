@@ -1,8 +1,7 @@
-%form{ :action => "/subscribe", :method => "post"}
+%form#emailSubscribe{ :action => "/subscribe", :method => "post"}
   %fieldset
     %ol
       %li
-        %label{:for => "email"} Updates By Email
-        %input#subscribe{:type => "text", :name => "email", :class => "text"}
+        %input{:type => "text", :name => "email", :id => "subscribe", :class => "text"}
       %li
-    %input{:type => "submit", :value => "Subscribe", :class => "button"}
+    %input{:type => "submit", :value => "Updates By Email", :class => "button"}
