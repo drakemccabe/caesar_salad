@@ -3,23 +3,12 @@
   %head
     %title= NAV[active.downcase.to_sym][:title]
     %meta{:name => "description", :content => NAV[active.downcase.to_sym][:description]}
-    %meta{property: "og:type", content: "website"}
-    %meta{property: "og:title", content: NAV[active.downcase.to_sym][:title]}
-    %meta{property: "og:description", content: NAV[active.downcase.to_sym][:description]}
-    %meta{property: "og:url", content: request.env["HTTP_HOST"] + NAV[active.downcase.to_sym][:path]}
-    %meta{property: "og:site_name", content: SITE_NAME}
-    %meta{property: "og:image", content: LOGO}
-    %meta{property: "twitter:card", content: "summary"}
-    %meta{property: "twitter:site", content: NAV[:home][:description]}
-    %meta{property: "twitter:title", content: NAV[active.downcase.to_sym][:title]}
-    %meta{property: "twitter:description", content: NAV[active.downcase.to_sym][:description]}
-    %meta{property: "twitter:image", content: LOGO}
+    = partial 'schema', locals: { active: active }
     %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/main.css'}
     %script{:type => "text/javascript", :src => "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"}
     %script{:type => "text/javascript", :src  => "/js/main.js"}
     = GOOGLE_ANALYTICS_TAG
     = WEBMASTER_TOOLS_SITE_VERIFICATION
-    = partial 'schema', locals: { active: active }
   %body
     %a.js-menu-trigger.sliding-panel-button.sticky
       %img{:src => "/img/menu.png"}

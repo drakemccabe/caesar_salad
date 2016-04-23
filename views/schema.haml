@@ -1,0 +1,11 @@
+%meta{property: "og:type", content: "website"}
+%meta{property: "og:title", content: NAV[active.downcase.to_sym][:title]}
+%meta{property: "og:description", content: NAV[active.downcase.to_sym][:description]}
+%meta{property: "og:url", content: request.env["HTTP_HOST"] + NAV[active.downcase.to_sym][:path]}
+%meta{property: "og:site_name", content: SITE_NAME}
+%meta{property: "og:image", content: LOGO}
+%meta{property: "twitter:card", content: "summary"}
+%meta{property: "twitter:site", content: NAV[:home][:description]}
+%meta{property: "twitter:title", content: NAV[active.downcase.to_sym][:title]}
+%meta{property: "twitter:description", content: NAV[active.downcase.to_sym][:description]}
+%meta{property: "twitter:image", content: LOGO}

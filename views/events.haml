@@ -1,21 +1,8 @@
 %div.cards
   - events.each do |event|
-    %div.card
-      %div.card-image
-        %img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png", :alt => "card" }
-      %div.card-header Hello
-      %div.card-copy
-        %p Description
-    %div.card
-      %div.card-image
-        %img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png", :alt => "card" }
-      %div.card-header Hello
-      %div.card-copy
-        %p Description
-    %div.card
-      %div.card-image
-        %img{:src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png", :alt => "card" }
-      %div.card-header Hello
-      %div.card-copy
-        %p Description
-    
+    %a(href="https://facebook.com/events/#{events["id"]}")
+      %div.card
+        %div.card-header= events["name"]
+        %div.card-copy
+          %p lol
+          %p=events["description"]

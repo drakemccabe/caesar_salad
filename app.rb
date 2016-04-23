@@ -1,7 +1,8 @@
 require 'sinatra'; require 'haml'; require 'sass'; require 'mailchimp'; require './lib/constants.rb'
 require './lib/helpers.rb'; require 'sinatra/partial'; require 'koala'; require 'sendgrid-ruby'
+require 'curb'
 
-OFFLINE_DEV = TRUE;
+OFFLINE_DEV = FALSE;
 
 ### SETUP ###
 configure do
@@ -48,8 +49,8 @@ get '/' do
   if OFFLINE_DEV
     events = []
   else
-    @graph = Koala::Facebook::API.new("CAAMq2lPRBFIBAAGTcV7E6TJ99v7aYDdYCj4ZBqxOpZBZAQtLaJtS7Pb9wZCsrNFLtprsPAew55FaBf7txmnnfMwxTRDQ91jlv5ysd1nsSEeJGgatKqyudESSmFXYAUrqsqTd3AFDLcFhvtzfZASXRZAepGDuddxli4ReRw8xHjE5lyTiFrOrlOsTtAn26di0Ei9jZCTlSZBJ5tSMWZCqBKn5y")
-    events = @graph.get_connection(FB_PAGE, "events")
+   raw_events = Curl::Easy.perform('https://graph.facebook.com/v2.6/563294870511008/?access_token=CAACEdEose0cBAMrztIL1OZBTrm7IiNikpSsOSxJVK4ApWEDgv4ekCTAZAYxymmBfengyJnhOoYzilqSt8Wm68YuP96M31ioyji9TZBL5gkJsJVtEzVtCNClqk6qjB5pKQzNqqfc6iERyAnr8mjEAU4ModLZALmulcVuqRmTNO9t5hTF5CP39ZADX4ZAYbtfY8hVSZApKWn4MXdvW8UZCUO4H/')
+   events = JSON.parse(raw_events.body)
   end
   @product = "Short Description of Product"
   haml :index, :layout => :default_layout, :locals => { active: "home", events: events }
@@ -59,13 +60,13 @@ get '/events' do
   if OFFLINE_DEV
     events = []
   else
-    @graph = Koala::Facebook::API.new(ENV['FACEBOOK'])
-    events = @graph.get_connection(FB_PAGE, "events")
+    raw_events = Curl::Easy.perform('https://graph.facebook.com/v2.6/563294870511008/?access_token=CAACEdEose0cBAMrztIL1OZBTrm7IiNikpSsOSxJVK4ApWEDgv4ekCTAZAYxymmBfengyJnhOoYzilqSt8Wm68YuP96M31ioyji9TZBL5gkJsJVtEzVtCNClqk6qjB5pKQzNqqfc6iERyAnr8mjEAU4ModLZALmulcVuqRmTNO9t5hTF5CP39ZADX4ZAYbtfY8hVSZApKWn4MXdvW8UZCUO4H/')
+    events = JSON.parse(raw_events.body)
   end
-  haml :events, :layout => :default_layout, :locals => { active: "events"}
+  haml :events, :layout => :default_layout, :locals => { active: "events", events: events}
 end
 
 get '/contact-us' do
-  haml :contact, :layout => :default_layout, :locals => { active: "home" }
+  events = []
+  haml :contact, :layout => :default_layout, :locals => { active: "home", events: events }
 end
-

@@ -6,32 +6,32 @@ SITE_NAME = "Caesar Salad"
 
 ### BUSINESS LEGAL NAME ###
 BIZ_NAME = "Caesar Salad"
-  
+
 ### BUSINESS EMAIL ###
 BIZ_EMAIL = "company@domain.com"
 
 ### NAV ###
 NAV = {home: {
-              title: SITE_NAME + "| Other Stuff", 
+              title: SITE_NAME + "| Other Stuff",
               description: "The site meta description",
               menu: "Home",
               path: "/"
        },
-       
+
        about: {
-               title: "", 
+               title: "",
                description: "",
                menu: "About",
                path: "/"
        },
-  
+
        contact: {
-                 title: "Contact Us", 
+                 title: "Contact Us",
                  description: "",
                  menu: "Contact",
                  path: "/contact-us"
        },
-  
+
       events: {
                 title: "Upcoming Events",
                 description: "",
@@ -68,4 +68,7 @@ HOURS = [
 BIZ_PHONE = "555-555-5555"
 
 ### BUSINESS ADDRESS ###
-BIZ_ADDRESS = "123 Main St. Town, MA 02801"
+BIZ_ADDRESS = "123 Main St."
+BIZ_CITY = "Boston"
+BIZ_STATE = "MA"
+BIZ_ZIP = "02379"

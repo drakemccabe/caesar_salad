@@ -16,13 +16,13 @@
     %li
       %h3 Contact
     %li
-      %p Phone
-      %p= BIZ_PHONE
-    %li
-      %p Email
-      %p= BIZ_EMAIL
-    %li  
-      %p Address
-      %p= BIZ_ADDRESS
+      %article.vcard{:itemscope => true, :itemtype => 'http://schema.org/Organization'}
+        %span.fn.org{:itemprop => 'name'}= BIZ_NAME
+        %div.adr{:itemprop => 'address', :itemscope => true, :itemtype => 'http://schema.org/PostalAddress'}
+          %span.street-address{:itemprop => 'streetAddress'}=BIZ_ADDRESS
+          %span.locality{:itemprop => 'addressLocality'}=BIZ_CITY
+          %span.region{:itemprop => 'addressRegion'}=BIZ_STATE
+          %span.postal-code{:itemprop => 'postalCode'}=BIZ_ZIP
+        %span.tel{:itemprop => 'telephone'}=BIZ_PHONE
 %hr
 %p= "&#169; " + Date.today.year.to_s + " " + BIZ_NAME
